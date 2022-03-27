@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title> o novo </title>
+    </head>
+    <body>
+        <img src = "o.png">
+        <div id = "tudo">
+            <canvas width="320" height="320" id = "tela"></canvas>
+            <div id = "butao" onclick = "move()">
+                
+            </div>
+        </div>
+        <style>
+            img {
+                height : 100px ;
+                width : 100px ;
+                display : none ;
+            }
+            #tela {
+                position : relative ;
+                top : 15px ;
+                left : 15px ;
+                border : 1px solid red;
+            }
+            
+            #tudo {
+                position : center ;
+                margin : 0 auto ;
+                width : 350px ;
+                height : 550px ;
+                border : 2px solid blue;
+                background-color : white ;
+            }
+            
+            #butao {
+                position : relative ;
+                width : 80px ;
+                height : 80px ;
+                background-color : yellow ;
+                border-radius : 20px ;
+                top : 25px ;
+                left : 50px;
+                
+                
+            }
+        </style>
+        <script>
+            var x = 0
+            
+            function move() {
+                x = x + 15
+            }
+            function desenha() {
+                var tela2d = document.querySelector("#tela").getContext("2d");
+                var o = document.querySelector('img');
+                tela2d.clearRect(0,0,320,320);
+                tela2d.drawImage(o,100,100,512,512,x,0,500,500);
+            }
+            
+            setInterval(desenha,100);
+        </script>
+    </body>
+</html>
